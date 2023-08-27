@@ -1,12 +1,14 @@
 package com.example.demo.student;
 
+import java.time.LocalDate;
+
 public class Student {
     private Long id;
     private int age;
     private String name,email;
-    private int dob;
+    private LocalDate dob;
 
-    public Student(Long id, int age, String name, String email, int dob) {
+    public Student(Long id, int age, String name, String email, LocalDate dob) {
         this.id = id;
         this.age = age;
         this.name = name;
@@ -18,7 +20,7 @@ public class Student {
 
     }
 
-    public Student(int age, String name, String email, int dob) {
+    public Student(int age, String name, String email, LocalDate dob) {
         this.age = age;
         this.name = name;
         this.email = email;
@@ -57,11 +59,11 @@ public class Student {
         this.email = email;
     }
 
-    public int getDob() {
+    public LocalDate getDob() {
         return dob;
     }
 
-    public void setDob(int dob) {
+    public void setDob(LocalDate dob) {
         this.dob = dob;
     }
 
