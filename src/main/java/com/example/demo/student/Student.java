@@ -13,7 +13,7 @@ public class Student {
     @SequenceGenerator(
             name = "student_sequence",
             sequenceName = "student_sequence",
-            allocationSize = 11
+            allocationSize = 1
     )
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
@@ -24,6 +24,10 @@ public class Student {
     private String name,email;
     private LocalDate dob;
 
+    public Student() {
+
+    }
+
     public Student(Long id, int age, String name, String email, LocalDate dob) {
         this.id = id;
         this.age = age;
@@ -32,9 +36,6 @@ public class Student {
         this.dob = dob;
     }
 
-    public Student() {
-
-    }
 
     public Student(int age, String name, String email, LocalDate dob) {
         this.age = age;
