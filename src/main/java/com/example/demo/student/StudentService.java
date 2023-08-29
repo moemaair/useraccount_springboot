@@ -23,7 +23,7 @@ public class StudentService {
        return studentRepository.save(student);
     }
 
-    public Student fetchStudentById(Long id) {
-        return studentRepository.findById(id).get();
+    public String fetchStudentById(Long id) {
+        return studentRepository.findById(id).get().getName().toString();
     }
 }
