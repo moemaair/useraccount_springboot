@@ -3,6 +3,7 @@ package com.example.demo.student;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.time.Period;
 
 
 @Entity // for hibernate
@@ -20,6 +21,8 @@ public class Student {
             generator = "student_sequence"
     )
     private Long id;
+
+    @Transient
     private int age;
     private String name,email;
     private LocalDate dob;
@@ -56,9 +59,7 @@ public class Student {
         return age;
     }
 
-    public void setAge(int age) {
-        this.age = age;
-    }
+    public void setAge(int age) {this.age = age;}
 
     public String getName() {
         return name;
