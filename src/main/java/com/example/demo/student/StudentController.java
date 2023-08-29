@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(path = "api/v1/student")
+@RequestMapping
 public class StudentController {
 
     // create an object of studentService
@@ -17,13 +17,14 @@ public class StudentController {
         this.studentService = studentService;
     }
 
-    @GetMapping
+    @GetMapping("/student")
     public  List<Student> getStudent() {
         return studentService.getStudent();
     }
 
-    @PostMapping
-    public void registerNewStudent(@RequestBody Student student){
-        studentService.addStudent(student);
+    @PostMapping("register")
+    public Student registerNewStudent(@RequestBody Student student){
+        return studentService.addStudent(student);
     }
+
 }

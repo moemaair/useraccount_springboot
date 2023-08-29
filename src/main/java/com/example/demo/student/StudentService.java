@@ -3,7 +3,6 @@ package com.example.demo.student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -16,12 +15,12 @@ public class StudentService {
         this.studentRepository = studentRepository;
     }
 
-    public  List<Student> getStudent() {
+    public List<Student> getStudent() {
         return studentRepository.findAll();
     }
 
-    public  void addStudent(Student student) {
-        System.out.println(student);
+    public Student addStudent(Student student) {
+       return studentRepository.save(student);
     }
 
 }
