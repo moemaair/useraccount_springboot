@@ -31,17 +31,15 @@ public class Student {
 
     }
 
-    public Student(Long id, int age, String name, String email, LocalDate dob) {
+    public Student(Long id, String name, String email, LocalDate dob) {
         this.id = id;
-        this.age = age;
         this.name = name;
         this.email = email;
         this.dob = dob;
     }
 
 
-    public Student(int age, String name, String email, LocalDate dob) {
-        this.age = age;
+    public Student(String name, String email, LocalDate dob) {
         this.name = name;
         this.email = email;
         this.dob = dob;
@@ -56,7 +54,7 @@ public class Student {
     }
 
     public int getAge() {
-        return age;
+        return Period.between(this.dob, LocalDate.now()).getYears();
     }
 
     public void setAge(int age) {this.age = age;}
