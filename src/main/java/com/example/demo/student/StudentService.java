@@ -2,8 +2,10 @@ package com.example.demo.student;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Objects;
 
 @Service
 public class StudentService {
@@ -37,6 +39,26 @@ public class StudentService {
 
       }
       studentRepository.deleteById(id);
- 
+
+    }
+    @Transactional
+    public void updateStudent(Long id, String name, String email) {
+        // wanna check if name is null, empty and !equal to previous name
+        Student student = studentRepository.findById(id).orElseThrow(() -> new IllegalStateException(
+                "student with id " + id + " doesnt not exist"
+        ));
+        if(name != null
+                && name.length() > 0
+                && !Objects.equals(student.getName(), name)
+        ){
+            student.setName(name);
+        }
+
+        if(email != null
+                && email.length() > 0
+                && !Objects.equals(student.getEmail(), email)
+        ){
+            student.setEmail(email);
+        }
     }
 }
