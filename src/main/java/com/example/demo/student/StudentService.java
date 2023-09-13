@@ -61,4 +61,8 @@ public class StudentService {
             student.setEmail(email);
         }
     }
+
+    public void deleteStudentAll() {
+        studentRepository.deleteAll();
+    }
 }

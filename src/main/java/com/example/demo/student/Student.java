@@ -7,7 +7,7 @@ import java.time.Period;
 
 
 @Entity // for hibernate
-@Table()
+@Table( )
 public class Student {
 
     @Id
